@@ -8,8 +8,20 @@ class CreatureCard(Card):
         self.attack = attack
         self.health = health
     
-    def play(self, game_state: dict) -> dict:
-        pass
+    def get_card_info(self) -> dict:
+        return {"name": self.name, "cost": self.cost, "rarity": self.rarity, "type": "Creature", "attack": self.attack, "health": self.health}
     
+
+    def play(self, game_state: dict) -> dict:
+        if "active" in game_state.values():
+            return  {"card_played": {self.name}, "mana_used": {self.cost}, "effect": "Creature summoned to battlefield"}
+        
+
     def attack_target(self, target) -> dict:
-        pass
+
+        hit = target.health - self.attack
+        if hit <= 0:
+            combat_report = True
+        return {"attacker": self.name, "target": target.name, "damage_dealt": self.attack, "combat_resolved": combat_report}
+
+#   
