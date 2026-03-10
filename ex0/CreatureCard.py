@@ -22,6 +22,6 @@ class CreatureCard(Card):
         hit = target.health - self.attack
         if hit <= 0:
             combat_report = True
+        else:
+            combat_report = False
         return {"attacker": self.name, "target": target.name, "damage_dealt": self.attack, "combat_resolved": combat_report}
-
-#   
