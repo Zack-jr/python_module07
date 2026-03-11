@@ -5,9 +5,11 @@ class ArtifactCard(Card):
         super().__init__(name, cost, rarity)
         self.durability = durability
         self.effect = effect
+        self.card_type = "Artifact"
     
     def play(self, game_state: dict) -> dict:
-        return {"card_played": self.name, "mana_used": self.cost, "effect": self.effect}
+        if "active" in game_state.values():
+            return {"card_played": self.name, "mana_used": self.cost, "effect": self.effect}
 
     def activate_ability(self) -> dict:
-        pass
+        return {self.effect: "Artifact active until destruction"}

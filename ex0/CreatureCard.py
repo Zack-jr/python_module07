@@ -7,6 +7,7 @@ class CreatureCard(Card):
             raise ValueError("Invalid attack or health. Attributes set to 1 by default.")
         self.attack = attack
         self.health = health
+        self.card_type = "Creature"
     
     def get_card_info(self) -> dict:
         return {"name": self.name, "cost": self.cost, "rarity": self.rarity, "type": "Creature", "attack": self.attack, "health": self.health}
@@ -14,7 +15,7 @@ class CreatureCard(Card):
 
     def play(self, game_state: dict) -> dict:
         if "active" in game_state.values():
-            return  {"card_played": {self.name}, "mana_used": {self.cost}, "effect": "Creature summoned to battlefield"}
+            return  {"card_played": self.name, "mana_used": self.cost, "effect": "Creature summoned to battlefield"}
         
 
     def attack_target(self, target) -> dict:
