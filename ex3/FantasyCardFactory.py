@@ -10,7 +10,7 @@ class FantasyCardFactory(CardFactory):
         artifacts = []
     
     def create_creature(self, name_or_power: str | int | None = None) -> Card:
-        pass
+        
     
     def create_spell(self, name_or_power: str | int| None = None) -> Card:
         return

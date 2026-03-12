@@ -6,9 +6,10 @@ def main():
     print("Configuring Fantasy Card Game...")
     game = GameEngine()
     strategy = AgressiveStrategy()
+    print(f"Strategy: {strategy.get_strategy_name()}")
     factory = FantasyCardFactory(strategy)
+
     game.configure_engine(factory, strategy)
-    print(f"Factory")
 
 
     available_cards = {"creatures": ['dragon, goblin'], "spells": ['fireball'], "artifacts": ['mana_ring']}

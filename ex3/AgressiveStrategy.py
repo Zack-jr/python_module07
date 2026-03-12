@@ -6,7 +6,7 @@ class   AgressiveStrategy(GameStrategy):
         pass
     
     def get_strategy_name(self):
-        pass
+        return f"{type(self).__name__}"
     
     def prioritize_targets(self, available_targets: list):
         pass
