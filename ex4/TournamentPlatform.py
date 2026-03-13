@@ -1,0 +1,2 @@
+class TournamentPlatform():
+    pass

@@ -1,21 +1,21 @@
-from . import FantasyCardFactory , AgressiveStrategy, GameEngine
+from . import FantasyCardFactory , AggressiveStrategy, GameEngine
 
 def main():
     print("=== DataDeck Game Engine ===\n")
 
     print("Configuring Fantasy Card Game...")
     game = GameEngine()
-    strategy = AgressiveStrategy()
-    print(f"Strategy: {strategy.get_strategy_name()}")
-    factory = FantasyCardFactory(strategy)
-
+    strategy = AggressiveStrategy()
+    factory = FantasyCardFactory()
     game.configure_engine(factory, strategy)
+    print(f"Factory: {type(game.factory).__name__}")
+    print(f"Strategy: {game.strategy.get_strategy_name()}")
+    print(f"Available types: {game.factory.get_supported_types()}\n")
 
+    game.simulate_turn()
+    print(f"\nGame Report: {game.get_engine_status()}\n")
 
-    available_cards = {"creatures": ['dragon, goblin'], "spells": ['fireball'], "artifacts": ['mana_ring']}
-    print(f"Available types: {available_cards}\n")
-
-    print("Simulating agressive turn...")
+    print("Abstract Factory + Strategy Pattern: Maximum flexibility achieved!")
 
 if __name__ == '__main__':
     main()

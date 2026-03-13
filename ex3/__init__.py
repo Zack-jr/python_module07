@@ -2,9 +2,8 @@ from ex0.Card import Card
 from ex0.CreatureCard import CreatureCard
 from ex1.SpellCard import SpellCard
 from ex1.ArtifactCard import ArtifactCard
-from ex2.EliteCard import EliteCard
-from .CardFactory import CardFactory
-from .GameStrategy import GameStrategy
-from .FantasyCardFactory import FantasyCardFactory
-from .GameEngine import GameEngine
-from .AgressiveStrategy import AgressiveStrategy
+from ex3.GameStrategy import GameStrategy
+from ex3.CardFactory import CardFactory
+from ex3.AggressiveStrategy import AggressiveStrategy
+from ex3.FantasyCardFactory import FantasyCardFactory
+from ex3.GameEngine import GameEngine
