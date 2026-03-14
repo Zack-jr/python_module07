@@ -1,4 +1,6 @@
-from . import TournamentCard, TournamentPlatform
+from ex4.TournamentCard import TournamentCard
+from ex4.TournamentPlatform import TournamentPlatform
+
 
 def main():
     print("=== DataDeck Tournament Platform ===\n")
@@ -36,7 +38,8 @@ def main():
     i = 0
     for participant in leaderboard:
         i += 1
-        print(f"{i}. {participant.name} - Rating: {participant.rating} ({participant.wins}-{participant.losses})")
+        print(f"{i}. {participant.name} - Rating: {participant.rating} "
+              f"({participant.wins}-{participant.losses})")
 
     print("\nPlatform Report:")
     print(tournament.generate_tournament_report())

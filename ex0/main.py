@@ -1,11 +1,12 @@
-from .CreatureCard import CreatureCard
+from ex0.CreatureCard import CreatureCard
+
 
 def main():
     print("=== DataDeck Card Foundation ===\n")
 
     currency = 8
     print("Testing Abstract Base Class Design:\n")
-    dragon = CreatureCard('Fire Dragon', 5, 'Legendary', 7, 5)
+    dragon = CreatureCard('Fire Dragon', 5, "Legendary", 7, 5)
     currency -= 5
     print("CreatureCard Info:")
     print(dragon.get_card_info())
@@ -24,6 +25,7 @@ def main():
     print(f"Playable: {elf.is_playable(currency)}")
 
     print("\nAbstract pattern successfully demonstrated!")
+
 
 if __name__ == '__main__':
     main()

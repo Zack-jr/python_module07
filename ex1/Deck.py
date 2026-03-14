@@ -1,23 +1,24 @@
-from . import Card
-from . import CreatureCard
-from . import SpellCard
-from . import ArtifactCard
+from ex0.Card import Card
+from ex0.CreatureCard import CreatureCard
+from ex1.SpellCard import SpellCard
+from ex1.ArtifactCard import ArtifactCard
 from random import choice, shuffle
+
 
 class Deck():
 
     def __init__(self):
         self.cards = []
-    
+
     def add_card(self, card: Card) -> None:
         self.cards.append(card)
-    
+
     def remove_card(self, card: Card) -> bool:
         self.cards.remove(card)
-    
+
     def shuffle(self) -> None:
         shuffle(self.cards)
-    
+
     def draw_card(self) -> Card:
         return choice(self.cards)
 
@@ -28,4 +29,10 @@ class Deck():
         artifacts = sum(1 for e in self.cards if isinstance(e, ArtifactCard))
         avg_cost = float(sum([e.cost for e in self.cards]) / total_cards)
         avg_cost = round(avg_cost, 2)
-        return {"total_cards": total_cards, "creatures": creatures, "spells": spells, "artifacts": artifacts, "avg_cost": avg_cost}
+        return {
+            "total_cards": total_cards,
+            "creatures": creatures,
+            "spells": spells,
+            "artifacts": artifacts,
+            "avg_cost": avg_cost
+            }

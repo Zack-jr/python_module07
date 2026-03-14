@@ -1,4 +1,7 @@
-from . import FantasyCardFactory , AggressiveStrategy, GameEngine
+from ex3.FantasyCardFactory import FantasyCardFactory
+from ex3.AggressiveStrategy import AggressiveStrategy
+from ex3.GameEngine import GameEngine
+
 
 def main():
     print("=== DataDeck Game Engine ===\n")
@@ -17,8 +20,6 @@ def main():
 
     print("Abstract Factory + Strategy Pattern: Maximum flexibility achieved!")
 
+
 if __name__ == '__main__':
     main()
-
-# abstract = GameStrategy, CardFactory,
-# concrete = AgressiveStrategy, FantasyCardFactory, GameEngine, 

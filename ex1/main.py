@@ -1,13 +1,19 @@
-from . import Card, CreatureCard, Deck, SpellCard, ArtifactCard
+from ex0.CreatureCard import CreatureCard
+from ex1.Deck import Deck
+from ex1.SpellCard import SpellCard
+from ex1.ArtifactCard import ArtifactCard
+
 
 def main():
+
     print("=== DataDeck Deck Builder ===\n")
 
     print("Building deck with different card types...")
     deck = Deck()
     creature = CreatureCard("Fire Dragon", 5, "Legedary", 7, 7)
     spell = SpellCard("Lightning Bolt", 3, "rare", "Deal 3 damage to target")
-    artifact = ArtifactCard("Mana Crystal", 2, "uncommon", float('inf'), "Permanent: +1 mana per turn")
+    artifact = ArtifactCard("Mana Crystal", 2, "uncommon", float('inf'),
+                            "Permanent: +1 mana per turn")
 
     deck.add_card(creature)
     deck.add_card(spell)
@@ -24,6 +30,7 @@ def main():
         deck.remove_card(drew)
 
     print("Polymorphism in action: Same interface, different card behaviors!")
+
 
 if __name__ == '__main__':
     main()
