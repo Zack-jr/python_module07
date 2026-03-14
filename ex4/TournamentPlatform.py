@@ -45,7 +45,7 @@ class TournamentPlatform():
 
     def generate_tournament_report(self) -> Dict:
         total_cards = len(self.cards)
-        avg_rating = sum(card.rating for card in self.cards) / total_cards
+        avg_rating = int(sum(card.rating for card in self.cards) / total_cards)
         return {
             "total_cards": total_cards,
             "matches_played": self.matches_played,
