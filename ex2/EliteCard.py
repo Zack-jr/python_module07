@@ -1,24 +1,27 @@
-from ex0.Card import Card
+from ex0.Card import Card, CardType
 from ex2.Combatable import Combatable
 from ex2.Magical import Magical
 from typing import Dict, List
 
 
 class EliteCard(Card, Combatable, Magical):
+    """EliteCard inheriting fronm 3 abc"""
 
-    def __init__(self, name, cost, rarity):
+    def __init__(self, name: str, cost: int, rarity: str):
         super().__init__(name, cost, rarity)
-        self.card_type = "Elite Card"
+        self.card_type = CardType.ELITECARD.value
         self.mana = 8
         self.health = 10
         self.used_spells = 0
         self.melee_hits = 0
 
     def play(self, game_state: Dict) -> Dict:
+        """play method"""
         if "active" in game_state.values():
             return {"card_played": self.name}
 
-    def attack(self, target) -> Dict:
+    def attack(self, target: Card) -> Dict:
+        """attack method"""
         self.melee_hits += 1
         return {
             "attacker": self.name,
@@ -28,6 +31,7 @@ class EliteCard(Card, Combatable, Magical):
             }
 
     def defend(self, incoming_damage: int) -> Dict:
+        """defend method"""
         still_alive = False
         self.health -= incoming_damage
         if self.health > 0:
@@ -40,6 +44,7 @@ class EliteCard(Card, Combatable, Magical):
             }
 
     def cast_spell(self, spell_name: str, targets: List) -> Dict:
+        """cast spell method"""
         self.mana -= 4
         self.used_spells += 1
         return {
@@ -50,11 +55,14 @@ class EliteCard(Card, Combatable, Magical):
             }
 
     def channel_mana(self, amount: int) -> Dict:
+        """channel some mana"""
         self.mana += amount
         return {"channeled": amount, "total_mana": self.mana}
 
     def get_magic_stats(self) -> Dict:
+        """get magic statistics"""
         return {"used_spells": self.used_spells, "current_mana": self.mana}
 
     def get_combat_stats(self) -> Dict:
+        """get close combat statistics"""
         return {"physical hits": self.melee_hits}

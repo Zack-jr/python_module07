@@ -1,4 +1,5 @@
 from ex0.CreatureCard import CreatureCard
+from ex0.Card import Rarity
 
 
 def main():
@@ -6,7 +7,7 @@ def main():
 
     currency = 8
     print("Testing Abstract Base Class Design:\n")
-    dragon = CreatureCard('Fire Dragon', 5, "Legendary", 7, 5)
+    dragon = CreatureCard('Fire Dragon', 5, Rarity.LEGENDARY.value, 7, 5)
     currency -= 5
     print("CreatureCard Info:")
     print(dragon.get_card_info())
@@ -17,11 +18,11 @@ def main():
     print(f"Play result: {dragon.play(game_state)}")
 
     print("\nFire Dragon attacks Goblin Warrior:")
-    goblin_warrior = CreatureCard('Goblin Warrior', 4, 'Rare', 4, 3)
-    print(f"Attack result: {dragon.attack_target(goblin_warrior)}")
+    gob_warrior = CreatureCard('Goblin Warrior', 4, Rarity.RARE.value, 4, 3)
+    print(f"Attack result: {dragon.attack_target(gob_warrior)}")
 
     print(f"\nTesting insufficient mana ({currency} available):")
-    elf = CreatureCard('Magic Elf',  7, "Legendary", 8, 3)
+    elf = CreatureCard('Magic Elf',  7, Rarity.RARE.value, 8, 3)
     print(f"Playable: {elf.is_playable(currency)}")
 
     print("\nAbstract pattern successfully demonstrated!")

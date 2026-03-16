@@ -4,8 +4,10 @@ from typing import List, Dict
 
 
 class AggressiveStrategy(GameStrategy):
+    """ aggressive stratgy class"""
 
     def execute_turn(self, hand: List, battlefield: List) -> Dict:
+        """simulate a turn"""
         hand.remove(hand[0])
         mana_used = sum(card.cost for card in hand)
         damage = sum(card.attack for card in hand
@@ -20,8 +22,10 @@ class AggressiveStrategy(GameStrategy):
             }
 
     def get_strategy_name(self):
+        """get the name of the strategy"""
         return f"{type(self).__name__}"
 
     def prioritize_targets(self, available_targets: List) -> List:
+        """get enemy from target list"""
         filter = [target for target in available_targets if "Enemy" in target]
         return filter

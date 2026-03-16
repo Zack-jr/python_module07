@@ -1,8 +1,10 @@
+from ex0.Card import Rarity
 from ex2.EliteCard import EliteCard
 
 
 # go into the class's dict, and get the callable values (methods)
 def get_methods(cls):
+    """get all methods from class"""
     return [
         name for name, value in cls.__dict__.items()
         if callable(value) and not name.startswith("__")
@@ -17,16 +19,16 @@ def main():
     for interface in interfaces:
         print(f"- {interface.__name__}: {get_methods(interface)}")
 
-    arcane_warrior = EliteCard("Arcane Warrior", 6, "Legendary")
+    arcane_warrior = EliteCard("Arcane Warrior", 6, Rarity.LEGENDARY.value)
     print(f"\nPlaying {arcane_warrior.name} ({arcane_warrior.card_type}):\n")
 
     print("Combat phase:")
-    print(f"Attack result: {arcane_warrior.attack("enemy")}")
+    print(f"Attack result: {arcane_warrior.attack('enemy')}")
     print(f"Defense result: {arcane_warrior.defend(2)}\n")
 
     print("Magic phase:")
     targets = ["Enemy1", "Enemy2"]
-    print(f"Spell Cast: {arcane_warrior.cast_spell("Fireball", targets)}")
+    print(f"Spell Cast: {arcane_warrior.cast_spell('Fireball', targets)}")
     print(f"Mana channel: {arcane_warrior.channel_mana(3)}\n")
 
     print("Multiple interface implementation successful!")

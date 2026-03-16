@@ -3,6 +3,7 @@ from typing import Dict
 
 
 class CreatureCard(Card):
+    """concrete creature card class"""
 
     def __init__(self, name: str, cost: int, rarity: str,
                  attack: int, health: int):
@@ -31,7 +32,8 @@ class CreatureCard(Card):
                 "effect": "Creature summoned to battlefield"
                 }
 
-    def attack_target(self, target) -> Dict:
+    def attack_target(self, target: Card) -> Dict:
+        """attack target"""
 
         hit = target.health - self.attack
         if hit <= 0:

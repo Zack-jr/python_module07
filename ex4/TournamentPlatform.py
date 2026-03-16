@@ -9,10 +9,13 @@ class TournamentPlatform():
         self.matches_played = 0
 
     def register_card(self, card: TournamentCard) -> str:
+        """register a new card"""
         self.cards.append(card)
         return f"{card.name} (ID: {card.id}):"
 
     def create_match(self, card1_id: str, card2_id: str) -> Dict:
+        """simulate match"""
+
         card1 = next(card for card in self.cards if card.id == card1_id)
         card2 = next(card for card in self.cards if card.id == card2_id)
 
@@ -38,12 +41,14 @@ class TournamentPlatform():
             }
 
     def get_leaderboard(self) -> List:
+        """get leaderboard"""
         winner = max(self.cards, key=lambda c: c.calculate_rating())
         loser = min(self.cards, key=lambda c: c.calculate_rating())
         leaderboard = [winner, loser]
         return leaderboard
 
     def generate_tournament_report(self) -> Dict:
+        """get tournament report"""
         total_cards = len(self.cards)
         avg_rating = int(sum(card.rating for card in self.cards) / total_cards)
         return {

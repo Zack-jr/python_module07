@@ -15,16 +15,20 @@ class TournamentCard(Card, Combatable, Rankable):
         self.rating = rating
 
     def play(self, game_state: Dict) -> Dict:
+        """play a card"""
         if "active" in game_state.values():
             return {f"Playing {self.name}."}
 
     def attack(self, target) -> Dict:
+        """attack target"""
         return {"attacker": self.name, "defender": target}
 
     def defend(self, incoming_damage: int) -> Dict:
+        """defend from damage"""
         return {"defender": self.name, "damage_taken": incoming_damage}
 
     def get_combat_stats(self) -> Dict:
+        """get combat stats"""
         return {"wins": self.wins, "losses": self.losses}
 
     def calculate_rating(self) -> int:

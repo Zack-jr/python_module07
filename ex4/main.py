@@ -1,3 +1,4 @@
+from ex0.Card import Rarity
 from ex4.TournamentCard import TournamentCard
 from ex4.TournamentPlatform import TournamentPlatform
 
@@ -8,8 +9,10 @@ def main():
     tournament = TournamentPlatform()
 
     print("Registering Tournament Cards...\n")
-    card1 = TournamentCard("Fire Dragon", 5, "Legendary", "dragon_001", 1200)
-    card2 = TournamentCard("Ice Wizard", 4, "Legendary", "wizard_001", 1150)
+    card1 = TournamentCard("Fire Dragon", 5, Rarity.LEGENDARY.value,
+                           "dragon_001", 1200)
+    card2 = TournamentCard("Ice Wizard", 4, Rarity.LEGENDARY.value,
+                           "wizard_001", 1150)
 
     interface1 = ", ".join(cls.__name__ for cls in card1.__class__.__bases__)
     interface2 = ", ".join(cls.__name__ for cls in card2.__class__.__bases__)
@@ -22,13 +25,13 @@ def main():
     win_loss2 = card2.get_combat_stats()
 
     print(f"- Interfaces: [{interface1}]")
-    print(f"- Rating: {rank["Rating"]}")
-    print(f"- Record: {win_loss1["wins"]}-{win_loss1["losses"]}\n")
+    print(f"- Rating: {rank['Rating']}")
+    print(f"- Record: {win_loss1['wins']}-{win_loss1['losses']}\n")
 
     print(tournament.register_card(card2))
     print(f"- Interfaces: [{interface2}]")
-    print(f"- Rating: {rank2["Rating"]}")
-    print(f"- Record: {win_loss2["wins"]}-{win_loss2["losses"]}\n")
+    print(f"- Rating: {rank2['Rating']}")
+    print(f"- Record: {win_loss2['wins']}-{win_loss2['losses']}\n")
 
     print("Creating tournament match...")
     print(f"Match result: {tournament.create_match(card1.id, card2.id)}\n")

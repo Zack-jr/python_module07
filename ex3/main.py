@@ -16,7 +16,7 @@ def main():
     print(f"Available types: {game.factory.get_supported_types()}\n")
 
     game.simulate_turn()
-    print(f"\nGame Report: {game.get_engine_status()}\n")
+    print(f"\nGame Report:\n{game.get_engine_status()}\n")
 
     print("Abstract Factory + Strategy Pattern: Maximum flexibility achieved!")
 

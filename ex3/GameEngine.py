@@ -4,6 +4,7 @@ from typing import Dict
 
 
 class GameEngine():
+    """game engine"""
 
     def __init__(self):
         self.strategy = None

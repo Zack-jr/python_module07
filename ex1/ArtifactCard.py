@@ -1,15 +1,16 @@
-from ex0.Card import Card
+from ex0.Card import Card, CardType
 from typing import Dict
 
 
 class ArtifactCard(Card):
+    """concrete artifact class"""
 
     def __init__(self, name: str, cost: int, rarity: str,
                  durability: int, effect: str):
         super().__init__(name, cost, rarity)
         self.durability = durability
         self.effect = effect
-        self.card_type = "Artifact"
+        self.card_type = CardType.ARTIFACT.value
 
     def play(self, game_state: Dict) -> Dict:
         if "active" in game_state.values():
